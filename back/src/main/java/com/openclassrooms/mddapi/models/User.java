@@ -3,6 +3,8 @@ package com.openclassrooms.mddapi.models;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
 import javax.persistence.*;
@@ -20,6 +22,7 @@ public class User {
     private String username;
 
     @Column(nullable = false, unique = true)
+    @Email(message = "L'adresse email n'est pas valide")
     private String email;
 
     @Column(nullable = false)
