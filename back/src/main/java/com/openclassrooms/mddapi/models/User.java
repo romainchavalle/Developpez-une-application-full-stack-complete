@@ -3,6 +3,7 @@ package com.openclassrooms.mddapi.models;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import javax.validation.constraints.Pattern;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -22,6 +23,10 @@ public class User {
     private String email;
 
     @Column(nullable = false)
+    @Pattern(
+        regexp = "^(?=.{8,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).*$",
+        message = "Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial"
+    )
     private String password;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
