@@ -1,6 +1,5 @@
 package com.openclassrooms.mddapi.security.jwt;
 
-
 import java.io.IOException;
 
 import javax.servlet.FilterChain;
