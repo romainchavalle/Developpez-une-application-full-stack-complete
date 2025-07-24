@@ -8,6 +8,7 @@ import com.openclassrooms.mddapi.responses.JwtResponse;
 import com.openclassrooms.mddapi.security.jwt.JwtUtils;
 import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
 import com.openclassrooms.mddapi.security.services.UserDetailsServiceImpl;
+import com.openclassrooms.mddapi.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,40 +36,22 @@ public class AuthController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    AuthService authService;
+
     @PostMapping("/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest req) {
+    public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest loginRequest) {
 
-        System.out.println("Login request: " + req);
-        try {
-            Authentication auth = authManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(req.getIdentifier(), req.getPassword()));
+        JwtResponse jwtResponse = this.authService.login(loginRequest);
+        return ResponseEntity.ok(jwtResponse);
 
-            System.out.println("auth");
-            String token = jwtUtils.generateJwtToken(auth);
-            UserDetailsImpl u = (UserDetailsImpl) auth.getPrincipal();
-            return ResponseEntity.ok(new JwtResponse(token, u.getId(), u.getUsername()));
-        } catch (AuthenticationException ex) {
-            System.err.println("Authentication failed: " + ex.getClass().getSimpleName() + " – " + ex.getMessage());
-            // renvoyer un 401 explicite
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-        }
     }
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest registerRequest) {
-        if (userRepository.existsByUsernameOrEmail(registerRequest.getUsername(), registerRequest.getEmail())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body("Error: Email is already taken!");
-        }
 
-        // Create new user's account
-        User user = new User(registerRequest.getUsername(),
-                registerRequest.getEmail(),
-                passwordEncoder.encode(registerRequest.getPassword()));
+        JwtResponse jwtResponse = this.authService.register(registerRequest);
+        return ResponseEntity.ok(jwtResponse);
 
-        userRepository.save(user);
-
-        return ResponseEntity.ok("utilisateur créé");
     }
 }
