@@ -21,7 +21,7 @@ export class LoginComponent {
       '',
       [
         Validators.required,
-        Validators.email
+        Validators.min(3)
       ]
     ],
     password: [
