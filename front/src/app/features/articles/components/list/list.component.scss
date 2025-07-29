@@ -1,0 +1,25 @@
+.articles-container {
+  padding: 16px;
+
+  /* Responsive : passe à 1 ou 2 colonnes selon la taille */
+  @media (max-width: 960px) {
+    mat-grid-list {
+      cols: 2 !important;
+    }
+  }
+  @media (max-width: 600px) {
+    mat-grid-list {
+      cols: 1 !important;
+    }
+  }
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  mat-card-content {
+    flex: 1; /* pour que le contenu pousse l’action vers le bas */
+  }
+}
