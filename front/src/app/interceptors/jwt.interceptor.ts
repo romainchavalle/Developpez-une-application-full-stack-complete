@@ -5,7 +5,6 @@ import { SessionService } from '../services/session.service';
 @Injectable({ providedIn: 'root' })
 export class JwtInterceptor implements HttpInterceptor {
   constructor(private sessionService: SessionService) {}
-
   public intercept(request: HttpRequest<any>, next: HttpHandler) {
     if (this.sessionService.isLogged) {
       request = request.clone({

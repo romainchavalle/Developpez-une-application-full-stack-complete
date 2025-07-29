@@ -8,15 +8,12 @@ import { ArticleService } from '../../services/article.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
   public articles$: Observable<Article[]> = this.articleService.all();
 
   constructor(
     private articleService: ArticleService
   ) { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -48,7 +48,7 @@ export class RegisterComponent {
   public submit(): void {
     const registerRequest = this.form.value as RegisterRequest;
     this.authService.register(registerRequest).subscribe({
-        next: (_: void) => this.router.navigate(['/login']),
+        next: (_: void) => this.router.navigate(['/articles']),
         error: _ => this.onError = true,
       }
     );
