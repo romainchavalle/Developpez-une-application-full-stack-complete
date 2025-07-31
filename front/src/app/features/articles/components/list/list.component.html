@@ -10,7 +10,7 @@
           <mat-card-subtitle>
             {{ article.created_at | date: 'mediumDate' }}
             <!-- si vous avez le nom de l’auteur, remplacez authorId -->
-            — Auteur #{{ article.authorId }}
+            — Auteur {{ article.authorName}}
           </mat-card-subtitle>
         </mat-card-header>
 

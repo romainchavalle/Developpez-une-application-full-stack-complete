@@ -5,4 +5,5 @@ export interface Article {
   authorId: number;
   subjectId: number;
   created_at: Date;
+  authorName: string;
 }
