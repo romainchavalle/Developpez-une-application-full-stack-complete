@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

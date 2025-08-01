@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <!-- Logo -->
+  <div class="navbar-logo">
+    <img src="assets/logo_p6.png" alt="Logo MDD" />
+  </div>
+
+  <!-- Navigation centrale -->
+  <ul *ngIf="showNavbarDetails()" class="navbar-links">
+    <li><a routerLink="/articles" routerLinkActive="active">Articles</a></li>
+    <li><a routerLink="/themes" routerLinkActive="active">Thèmes</a></li>
+  </ul>
+
+  <!-- Actions utilisateur -->
+  <div class="navbar-actions">
+    <a class="logout" (click)="logout()">Se déconnecter</a>
+    <!-- <mat-icon class="avatar">account_circle</mat-icon> -->
+  </div>
+</nav>
