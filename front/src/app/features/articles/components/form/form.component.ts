@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ArticleService } from '../../services/article.service';
+import { SubjectService } from 'src/app/services/subject.service';
+import { tap } from 'rxjs';
+import { Subject } from 'src/app/features/subjects/interfaces/subject.interface';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +12,7 @@ import { ArticleService } from '../../services/article.service';
 })
 export class FormComponent implements OnInit {
 
-  subjects: Subject[] = [];
+ subjects: Subject[] = [];
 
   public form = this.fb.group({
   title:    ['', [Validators.required]],
@@ -20,9 +23,13 @@ export class FormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private articleService: ArticleService,
+    private subjectService: SubjectService,
   ) {}
 
   ngOnInit(): void {
+    this.subjectService.all()
+    .pipe(tap(list => this.subjects = list))
+    .subscribe();
   }
 
 }

@@ -1,1 +1,11 @@
 <p>form works!</p>
+<label for="subject">Sujet</label>
+<select id="subject" formControlName="subjectId">
+  <option [ngValue]="null">-- Choisir un sujet --</option>
+  <option *ngFor="let s of subjects" [ngValue]="s.id">
+    {{ s.name }}
+  </option>
+</select>
+<div *ngIf="form.get('subjectId').invalid && form.get('subjectId').touched">
+  Veuillez sélectionner un sujet.
+</div>
