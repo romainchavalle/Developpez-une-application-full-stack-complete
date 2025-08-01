@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { RegisterRequest } from '../../interfaces/registerRequest.interface';
+import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-register',
@@ -42,14 +44,18 @@ export class RegisterComponent {
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private sessionService: SessionService) {
   }
 
   public submit(): void {
     const registerRequest = this.form.value as RegisterRequest;
     this.authService.register(registerRequest).subscribe({
-        next: (_: void) => this.router.navigate(['/articles']),
-        error: _ => this.onError = true,
+        next: (response: SessionInformation) => {
+          this.sessionService.logIn(response);
+          this.router.navigate(['/articles']);
+        },
+        error: error => this.onError = true,
       }
     );
   }
