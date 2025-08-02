@@ -15,4 +15,11 @@ export class ArticleService {
   public all(): Observable<Article[]> {
     return this.httpClient.get<Article[]>(this.pathService);
   }
+
+  create(article: Article): Observable<string> {
+    return this.httpClient.post(this.pathService, article, {
+      responseType: 'text'
+    });
+  }
+
 }

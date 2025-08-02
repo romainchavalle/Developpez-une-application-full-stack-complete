@@ -1,9 +1,13 @@
 package com.openclassrooms.mddapi.controllers;
 
 import com.openclassrooms.mddapi.responses.ArticleDto;
+import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
 import com.openclassrooms.mddapi.services.ArticleService;
+import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +26,11 @@ public class ArticleController {
     }
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody ArticleDto article) {
-        articleService.createArticle(article);
+    public ResponseEntity<String> create(@RequestBody ArticleDto article,
+                                         @AuthenticationPrincipal UserDetailsImpl userPrincipal) {
+
+        Long authorId = userPrincipal.getId();
+        articleService.createArticle(article, authorId);
         return ResponseEntity.ok("article créé avec succès");
     }
 }

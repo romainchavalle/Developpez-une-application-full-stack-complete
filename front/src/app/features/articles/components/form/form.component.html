@@ -1,11 +1,31 @@
-<p>form works!</p>
-<label for="subject">Sujet</label>
-<select id="subject" formControlName="subjectId">
-  <option [ngValue]="null">-- Choisir un sujet --</option>
-  <option *ngFor="let s of subjects" [ngValue]="s.id">
-    {{ s.name }}
-  </option>
-</select>
-<div *ngIf="form.get('subjectId').invalid && form.get('subjectId').touched">
-  Veuillez sélectionner un sujet.
-</div>
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form" novalidate>
+  <div class="form-container">
+    <h2>Créer un nouvel article</h2>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Sélectionner un thème</mat-label>
+      <mat-select formControlName="subjectId">
+        <mat-option [value]="null">-- Choisir un sujet --</mat-option>
+        <mat-option *ngFor="let s of subjects" [value]="s.id">{{ s.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Titre de l’article</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Contenu de l’article</mat-label>
+      <textarea matInput rows="5" formControlName="content"></textarea>
+    </mat-form-field>
+
+    <div *ngIf="onError" class="error-message">
+        Échec de la création.
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">
+      Créer
+    </button>
+  </div>
+</form>

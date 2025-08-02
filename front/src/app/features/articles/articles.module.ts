@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormComponent } from './components/form/form.component';
 import { SubjectModule } from '../subjects/subject.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule }    from '@angular/material/select';
 
 const materialModules = [
   MatButtonModule,
@@ -18,7 +20,8 @@ const materialModules = [
   MatIconModule,
   MatInputModule,
   MatGridListModule,
-
+  FormsModule,
+  MatSelectModule
 ];
 
 
@@ -31,6 +34,7 @@ const materialModules = [
     CommonModule,
     ArticlesRoutingModule,
     SubjectModule,
+    ReactiveFormsModule,
     ...materialModules
   ]
 })

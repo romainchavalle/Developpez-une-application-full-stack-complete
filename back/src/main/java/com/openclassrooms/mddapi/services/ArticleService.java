@@ -8,5 +8,5 @@ public interface ArticleService {
 
     List<ArticleDto> getAllArticles();
 
-    void createArticle(ArticleDto article);
+    void createArticle(ArticleDto article, Long authorId);
 }

@@ -39,13 +39,13 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     @Transactional
-    public void createArticle(ArticleDto articleDto) {
+    public void createArticle(ArticleDto articleDto, Long authorId) {
         Article article = new Article();
         article.setTitle(articleDto.getTitle());
         article.setContent(articleDto.getContent());
 
         // Find author in users
-        User author = userRepository.findById(articleDto.getAuthorId())
+        User author = userRepository.findById(authorId)
                 .orElseThrow(() -> new IllegalArgumentException("Author not found"));
         article.setAuthor(author);
 
