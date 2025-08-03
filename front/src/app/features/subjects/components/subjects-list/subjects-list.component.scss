@@ -1,0 +1,14 @@
+.article-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border: 1px solid #fcfcfc;
+  width: 300px;
+}
+
+
+:host ::ng-deep .mat-card-header-text {
+  margin: 0 !important;
+}

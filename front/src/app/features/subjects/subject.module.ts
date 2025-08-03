@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { SubjectsListComponent } from './components/subjects-list/subjects-list.component';
+import { MatCardModule } from '@angular/material/card';
+import { CardComponent } from 'src/app/shared/card/card.component';
+import { MatGridList, MatGridListModule } from '@angular/material/grid-list';
+import { SubjectRoutingModule } from './subject-routing.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SubjectsListComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    SubjectRoutingModule,
+    MatCardModule,
+    CardComponent,
+    MatGridListModule
   ]
 })
 export class SubjectModule { }

@@ -1,0 +1,10 @@
+<div class="articles-container">
+  <mat-grid-list cols="3" gutterSize="16px" rowHeight="200px">
+    <mat-grid-tile *ngFor="let subject of subjects$ | async">
+    <app-card
+      [title]="subject.name"
+      [content]="subject.content">
+    </app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
