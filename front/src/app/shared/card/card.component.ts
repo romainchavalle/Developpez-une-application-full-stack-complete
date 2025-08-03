@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -15,19 +15,10 @@ export class CardComponent {
 
   @Input() title?: string;
   @Input() content?: string;
-  @Input() isArticle: boolean = true;
+  @Input() isArticle?: boolean;
   @Input() author?: string;
   @Input() date?: Date;
+  @Input() subscribed?: boolean;
 
-  //   @Output() subscribe = new EventEmitter<void>();
-  // @Output() unsubscribe = new EventEmitter<void>();
-
-  // onSubscribe() {
-  //   this.subscribe.emit();
-  // }
-
-  // onUnsubscribe() {
-  //   this.unsubscribe.emit();
-  // }
-
+  @Output() toggleSubscription = new EventEmitter<void>();
 }

@@ -8,12 +8,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("api/subscription")
+@RequestMapping("api/subscriptions")
 public class SubscriptionController {
 
     @Autowired
     private SubscriptionService subscriptionService;
+
+    @GetMapping
+    public ResponseEntity<List<SubscriptionDto>> getUserSubscriptions(@AuthenticationPrincipal UserDetailsImpl userPrincipal) {
+        Long userId = userPrincipal.getId();
+        List<SubscriptionDto> subscriptions = subscriptionService.getUserSubscriptions(userId);
+        return ResponseEntity.ok(subscriptions);
+    }
 
     @PostMapping
     public ResponseEntity<String> Create(@RequestBody SubscriptionDto subscriptionDto,

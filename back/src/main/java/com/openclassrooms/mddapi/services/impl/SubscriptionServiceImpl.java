@@ -6,11 +6,16 @@ import com.openclassrooms.mddapi.models.User;
 import com.openclassrooms.mddapi.repository.SubjectRepository;
 import com.openclassrooms.mddapi.repository.SubscriptionRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
+import com.openclassrooms.mddapi.responses.SubjectDto;
+import com.openclassrooms.mddapi.responses.SubscriptionDto;
+import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
 import com.openclassrooms.mddapi.services.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class SubscriptionServiceImpl implements SubscriptionService {
@@ -23,6 +28,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Autowired
     private SubjectRepository subjectRepository;
+
 
     public void create(Long userId, Long subjectId) {
         Subscription subscription = new Subscription();
@@ -43,8 +49,18 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     public void delete(Long userId, Long subjectId) {
         Subscription subscription = subscriptionRepository.findByUserIdAndSubjectId( userId, subjectId)
                 .orElseThrow(() -> new IllegalArgumentException("Subject not found"));
-        
+
         subscriptionRepository.delete(subscription);
     }
 
+    public List<SubscriptionDto> getUserSubscriptions(Long userId) {
+        return subscriptionRepository.findByUserId(userId)
+                .stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
+    }
+
+    private SubscriptionDto toDto(Subscription subscription) {
+        return new SubscriptionDto(subscription);
+    }
 }

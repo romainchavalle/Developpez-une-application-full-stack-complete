@@ -3,6 +3,7 @@
     <mat-grid-tile *ngFor="let article of articles$ | async">
     <app-card
       [title]="article.title"
+      [isArticle]="true"
       [content]="article.content"
       [author]="article.authorName"
       [date]="article.created_at">

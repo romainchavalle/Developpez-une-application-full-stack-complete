@@ -8,4 +8,9 @@
   <mat-card-content>
     {{ content | slice:0:120 }}...
   </mat-card-content>
+  <mat-card-actions *ngIf="!isArticle">
+    <button mat-button (click)="toggleSubscription.emit()">
+      {{ subscribed ? 'Se désabonner' : 'S’abonner' }}
+    </button>
+  </mat-card-actions>
 </mat-card>
