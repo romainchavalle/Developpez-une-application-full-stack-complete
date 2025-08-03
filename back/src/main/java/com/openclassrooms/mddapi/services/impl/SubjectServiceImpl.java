@@ -9,6 +9,7 @@ import com.openclassrooms.mddapi.services.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,11 +21,10 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public List<SubjectDto> getAllSubjects() {
-        return subjectRepository.findAll()
+         return subjectRepository.findAll()
                 .stream()
                 .map(this::toDto)
                 .collect(Collectors.toList());
-
     }
 
     private SubjectDto toDto(Subject subject) {
