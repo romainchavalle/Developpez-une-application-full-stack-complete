@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -7,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  imports: [MatCardModule, CommonModule],
+  imports: [MatCardModule, CommonModule, MatButtonModule],
 })
 export class CardComponent {
 

@@ -43,10 +43,12 @@ export class SubjectsListComponent implements OnInit {
   }
 
   toggle(subjectId: number, isSubscribed: boolean): void {
+    const subscription: Subscription = { subjectId };
+
     if (isSubscribed) {
-      this.subscriptionService.unsubscribe(subjectId).subscribe();
+      this.subscriptionService.unsubscribe(subscription).subscribe();
     } else {
-      this.subscriptionService.subscribe(subjectId).subscribe();
+      this.subscriptionService.subscribe(subscription).subscribe();
     }
   }
 }

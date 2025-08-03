@@ -7,7 +7,9 @@ import lombok.Data;
 public class SubscriptionDto {
     Long subjectId;
 
+    public SubscriptionDto() { }
+
     public SubscriptionDto(Subscription subscription) {
-        this.subjectId = subscription.getId();
+        this.subjectId = subscription.getSubject().getId();
     }
 }

@@ -30,7 +30,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     private SubjectRepository subjectRepository;
 
 
-    public void create(Long userId, Long subjectId) {
+    public SubscriptionDto create(Long userId, Long subjectId) {
         Subscription subscription = new Subscription();
 
         // Find author in users
@@ -43,10 +43,14 @@ public class SubscriptionServiceImpl implements SubscriptionService {
                 .orElseThrow(() -> new IllegalArgumentException("Subject not found"));
         subscription.setSubject(subject);
 
-        subscriptionRepository.save(subscription);
+        Subscription savedSubscription = subscriptionRepository.save(subscription);
+        return toDto(savedSubscription);
     }
 
     public void delete(Long userId, Long subjectId) {
+        System.out.println("bonjour" + userId);
+        System.out.println("bonjour2" + subjectId);
+
         Subscription subscription = subscriptionRepository.findByUserIdAndSubjectId( userId, subjectId)
                 .orElseThrow(() -> new IllegalArgumentException("Subject not found"));
 

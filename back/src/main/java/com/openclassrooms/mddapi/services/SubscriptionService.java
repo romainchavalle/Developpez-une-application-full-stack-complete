@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface SubscriptionService {
     List<SubscriptionDto> getUserSubscriptions(Long userId);
-    void create(Long userId, Long subjectId);
+    SubscriptionDto create(Long userId, Long subjectId);
     void delete(Long userId, Long subjectId);
 }

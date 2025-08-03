@@ -23,8 +23,8 @@ export class SubscriptionService {
   }
 
 
-  subscribe(subjectId: number): Observable<Subscription> {
-    return this.httpClient.post<Subscription>(this.pathService, { subjectId })
+  subscribe(subscription: Subscription): Observable<Subscription> {
+    return this.httpClient.post<Subscription>(this.pathService, subscription)
       .pipe(
         tap(newSub => {
           const current = this.subscriptionsSubject.value;
@@ -33,15 +33,23 @@ export class SubscriptionService {
       );
   }
 
-  unsubscribe(subjectId: number): Observable<void> {
-    return this.httpClient.delete<void>(`api/subscriptions/${subjectId}`)
-      .pipe(
-        tap(() => {
-          const current = this.subscriptionsSubject.value;
-          this.subscriptionsSubject.next(current.filter(sub => sub.subjectId !== subjectId));
-        })
-      );
+ unsubscribe(dto: Subscription): Observable<string> {
+    return this.httpClient.delete(
+      this.pathService,
+      {
+        body: dto,
+        responseType: 'text'
+      }
+    ).pipe(
+      tap(() => {
+        const current = this.subscriptionsSubject.value;
+        this.subscriptionsSubject.next(
+          current.filter(sub => sub.subjectId !== dto.subjectId)
+        );
+      })
+    );
   }
+
 
 
 }
