@@ -1,17 +1,12 @@
 <div class="articles-container">
   <mat-grid-list cols="3" gutterSize="16px" rowHeight="200px">
     <mat-grid-tile *ngFor="let article of articles$ | async">
-      <mat-card class="article-card">
-        <mat-card-header>
-          <mat-card-title>{{ article.title }}</mat-card-title>
-          <mat-card-subtitle>
-            {{ article.created_at | date: 'MMM d, y' }} — {{ article.authorName }}
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          {{ article.content | slice:0:120 }}...
-        </mat-card-content>
-      </mat-card>
+    <app-card
+      [title]="article.title"
+      [content]="article.content"
+      [author]="article.authorName"
+      [date]="article.created_at">
+    </app-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

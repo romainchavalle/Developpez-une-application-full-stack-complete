@@ -12,6 +12,7 @@ import { FormComponent } from './components/form/form.component';
 import { SubjectModule } from '../subjects/subject.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule }    from '@angular/material/select';
+import { CardComponent } from 'src/app/shared/card/card.component';
 
 const materialModules = [
   MatButtonModule,
@@ -35,6 +36,7 @@ const materialModules = [
     ArticlesRoutingModule,
     SubjectModule,
     ReactiveFormsModule,
+    CardComponent,
     ...materialModules
   ]
 })
