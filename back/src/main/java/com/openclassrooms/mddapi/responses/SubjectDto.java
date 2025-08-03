@@ -7,9 +7,11 @@ import lombok.Data;
 public class SubjectDto {
     Long id;
     String name;
+    String content;
 
     public SubjectDto(Subject subject ) {
         this.id = subject.getId();
         this.name = subject.getName();
+        this.content = subject.getContent();
     }
 }

@@ -11,7 +11,7 @@ import { ArticleService } from '../../services/article.service';
 export class ListComponent {
 
   public articles$: Observable<Article[]> = this.articleService.all();
-
+  
 
   constructor(
     private articleService: ArticleService

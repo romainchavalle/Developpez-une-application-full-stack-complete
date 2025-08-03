@@ -13,6 +13,7 @@ export class SubjectService {
   constructor(private httpClient: HttpClient) { }
 
   public all(): Observable<Subject[]> {
+    console.log("get all apelé")
     return this.httpClient.get<Subject[]>(this.pathService);
   }
 }
