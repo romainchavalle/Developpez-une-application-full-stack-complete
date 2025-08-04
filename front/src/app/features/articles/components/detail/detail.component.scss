@@ -4,14 +4,17 @@
   padding: 1rem;
 }
 
-.author-avatar {
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-}
-
 .mat-card {
   box-shadow: none !important;
+}
+
+.mat-card-header .mat-card-title {
+    margin-bottom: 45px;
+    font-size: 31px;
+}
+
+:host ::ng-deep .mat-card-header-text {
+    margin: 0px 0px !important;
 }
 
 .metadata {
