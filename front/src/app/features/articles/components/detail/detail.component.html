@@ -1,0 +1,29 @@
+<ng-container *ngIf="article$ | async as article">
+  <mat-card class="detail-card">
+    <!-- En-tête avec avatar, titre et métadonnées -->
+    <mat-card-header>
+      <div
+        mat-card-avatar
+        class="author-avatar"
+        [ngStyle]="{ 'background-image': 'url(assets/avatar-placeholder.png)' }"
+      ></div>
+      <mat-card-title>{{ article.title }}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="metadata">
+          <span>{{ article.created_at | date: 'MMM d, y' }}</span>
+          <span class="separator">|</span>
+          <span>{{ article.authorName }}</span>
+          <span class="separator">|</span>
+          <span>{{ article.subjectName }}</span>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- Contenu -->
+    <mat-card-content>
+      <p class="detail-content">{{ article.content }}</p>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+  </mat-card>
+</ng-container>

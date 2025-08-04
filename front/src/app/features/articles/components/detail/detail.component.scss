@@ -1,0 +1,31 @@
+.detail-card {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.author-avatar {
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.mat-card {
+  box-shadow: none !important;
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.separator {
+  color: rgba(0,0,0,0.3);
+}
+
+.detail-content {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}

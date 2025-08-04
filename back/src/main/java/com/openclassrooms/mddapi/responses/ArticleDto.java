@@ -14,6 +14,7 @@ public class ArticleDto {
     Long subjectId;
     Instant created_at;
     String authorName;
+    String subjectName;
 
     public ArticleDto() {}
 
@@ -25,5 +26,6 @@ public class ArticleDto {
         this.subjectId = article.getSubject().getId();
         this.created_at = article.getCreatedAt();
         this.authorName = article.getAuthor().getUsername();
+        this.subjectName = article.getSubject().getName();
     }
 }

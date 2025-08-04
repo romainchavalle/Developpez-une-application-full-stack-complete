@@ -23,3 +23,9 @@
 .actions .mat-button {
   align-self: center;
 }
+
+
+.article-card.clickable {
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}

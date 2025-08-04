@@ -1,4 +1,7 @@
- <mat-card class="article-card">
+<mat-card class="article-card"
+[class.clickable]="isArticle"
+  (click)="onCardClick()"
+>
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
     <mat-card-subtitle *ngIf="isArticle">

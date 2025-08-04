@@ -6,7 +6,9 @@
       [isArticle]="true"
       [content]="article.content"
       [author]="article.authorName"
-      [date]="article.created_at">
+      [date]="article.created_at"
+      (select)="goToDetail(article.id)"
+      >
     </app-card>
     </mat-grid-tile>
   </mat-grid-list>

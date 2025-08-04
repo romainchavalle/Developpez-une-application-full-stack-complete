@@ -22,4 +22,11 @@ export class CardComponent {
   @Input() subscribed?: boolean;
 
   @Output() toggleSubscription = new EventEmitter<void>();
+  @Output() select = new EventEmitter<void>();
+
+  onCardClick() {
+    if (this.isArticle) {
+      this.select.emit();
+    }
+  }
 }

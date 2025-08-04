@@ -13,6 +13,8 @@ import { SubjectModule } from '../subjects/subject.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule }    from '@angular/material/select';
 import { CardComponent } from 'src/app/shared/card/card.component';
+import { DetailComponent } from './components/detail/detail.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 const materialModules = [
   MatButtonModule,
@@ -22,14 +24,16 @@ const materialModules = [
   MatInputModule,
   MatGridListModule,
   FormsModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDividerModule
 ];
 
 
 @NgModule({
   declarations: [
     ListComponent,
-    FormComponent
+    FormComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,
