@@ -33,18 +33,18 @@ export class SubscriptionService {
       );
   }
 
- unsubscribe(dto: Subscription): Observable<string> {
+ unsubscribe(subscription: Subscription): Observable<string> {
     return this.httpClient.delete(
       this.pathService,
       {
-        body: dto,
+        body: subscription,
         responseType: 'text'
       }
     ).pipe(
       tap(() => {
         const current = this.subscriptionsSubject.value;
         this.subscriptionsSubject.next(
-          current.filter(sub => sub.subjectId !== dto.subjectId)
+          current.filter(sub => sub.subjectId !== subscription.subjectId)
         );
       })
     );

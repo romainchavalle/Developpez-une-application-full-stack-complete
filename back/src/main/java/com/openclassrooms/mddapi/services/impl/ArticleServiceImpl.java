@@ -57,6 +57,11 @@ public class ArticleServiceImpl implements ArticleService {
         articleRepository.save(article);
 
     }
+    
+    public ArticleDto getArticleById(Long id) {
+        Article article = articleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Article not found"));
+        return toDto(article);
+    }
 
 
 

@@ -25,6 +25,12 @@ public class ArticleController {
         return ResponseEntity.ok(articles);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ArticleDto> getById(@PathVariable("id") Long id) {
+        ArticleDto article = articleService.getArticleById(id);
+        return ResponseEntity.ok(article);
+    }
+
     @PostMapping
     public ResponseEntity<String> create(@RequestBody ArticleDto article,
                                          @AuthenticationPrincipal UserDetailsImpl userPrincipal) {
