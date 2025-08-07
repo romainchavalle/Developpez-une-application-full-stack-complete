@@ -1,0 +1,29 @@
+<div class="comment-section">
+
+  <div *ngFor="let comment of comments" class="comment">
+    <mat-card class="comment-card">
+      <mat-card-header>
+        <div mat-card-avatar class="comment-avatar"></div>
+        <mat-card-title>{{ comment.userName }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ comment.content }}
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <form (ngSubmit)="submitComment()" class="comment-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Écrivez ici votre commentaire</mat-label>
+      <textarea matInput
+                [(ngModel)]="newComment"
+                name="comment"
+                required>
+      </textarea>
+    </mat-form-field>
+
+    <button mat-icon-button color="primary" type="submit">
+      <mat-icon>send</mat-icon>
+    </button>
+  </form>
+</div>

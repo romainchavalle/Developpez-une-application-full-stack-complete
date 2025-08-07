@@ -15,6 +15,7 @@ import { MatSelectModule }    from '@angular/material/select';
 import { CardComponent } from 'src/app/shared/card/card.component';
 import { DetailComponent } from './components/detail/detail.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { CommentComponent } from './components/comment/comment.component';
 
 const materialModules = [
   MatButtonModule,
@@ -33,7 +34,8 @@ const materialModules = [
   declarations: [
     ListComponent,
     FormComponent,
-    DetailComponent
+    DetailComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,

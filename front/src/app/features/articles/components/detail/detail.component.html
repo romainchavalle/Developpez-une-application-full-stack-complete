@@ -19,6 +19,9 @@
       <p class="detail-content">{{ article.content }}</p>
     </mat-card-content>
 
-    <mat-divider></mat-divider>
+    <mat-divider class="divider-spacing"></mat-divider>
+    <mat-card-title> Commentaires </mat-card-title>
+    <app-comment [articleId]="article.id"></app-comment>
   </mat-card>
+
 </ng-container>
