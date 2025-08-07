@@ -8,6 +8,7 @@ import com.openclassrooms.mddapi.responses.JwtResponse;
 import com.openclassrooms.mddapi.security.jwt.JwtUtils;
 import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
 import com.openclassrooms.mddapi.services.AuthService;
+import org.hibernate.mapping.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
 @Service
@@ -59,6 +61,17 @@ public class AuthServiceImpl implements AuthService {
 
         // Authenticate and return jwt for request
         return getJwtResponseFromAuthentication(registerRequest.getEmail(), registerRequest.getPassword());
+    }
+
+    public JwtResponse update(RegisterRequest registerRequest, Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException("Utilisateur introuvable"));
+
+        user.setUsername(registerRequest.getUsername());
+        user.setEmail(registerRequest.getEmail());
+        user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+        userRepository.save(user);
+
+        return getJwtResponseFromAuthentication(user.getEmail(), user.getPassword());
     }
 
     private JwtResponse getJwtResponseFromAuthentication(String username, String password) {
