@@ -22,5 +22,9 @@ export class AuthService {
     return this.httpClient.post<SessionInformation>(`${this.pathService}/login`, loginRequest);
   }
 
+  public update(loginRequest: RegisterRequest): Observable<SessionInformation> {
+    return this.httpClient.patch<SessionInformation>(`${this.pathService}/update`, loginRequest);
+  }
+
 
 }

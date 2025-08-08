@@ -32,6 +32,14 @@ export class SessionService {
     this.next();
   }
 
+  public updateLog(user: SessionInformation): void {
+    localStorage.removeItem('session');
+    this.sessionInformation = user;
+    this.isLogged = true;
+    localStorage.setItem('session', JSON.stringify(user));
+    this.next();
+  }
+
   public logOut(): void {
     this.sessionInformation = undefined;
     this.isLogged = false;

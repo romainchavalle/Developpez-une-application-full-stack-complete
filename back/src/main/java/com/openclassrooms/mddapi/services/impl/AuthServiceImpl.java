@@ -63,6 +63,7 @@ public class AuthServiceImpl implements AuthService {
         return getJwtResponseFromAuthentication(registerRequest.getEmail(), registerRequest.getPassword());
     }
 
+    @Transactional
     public JwtResponse update(RegisterRequest registerRequest, Long userId) {
         User user = userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException("Utilisateur introuvable"));
 
@@ -71,7 +72,9 @@ public class AuthServiceImpl implements AuthService {
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         userRepository.save(user);
 
-        return getJwtResponseFromAuthentication(user.getEmail(), user.getPassword());
+        System.out.println("coucou :" + user.getEmail());
+
+        return getJwtResponseFromAuthentication(registerRequest.getEmail(), registerRequest.getPassword());
     }
 
     private JwtResponse getJwtResponseFromAuthentication(String username, String password) {

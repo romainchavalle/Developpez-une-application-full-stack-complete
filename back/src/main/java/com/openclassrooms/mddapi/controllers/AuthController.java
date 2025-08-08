@@ -53,7 +53,7 @@ public class AuthController {
 
     }
 
-    @PatchMapping("/me")
+    @PatchMapping("/update")
     public ResponseEntity<JwtResponse> update(@RequestBody RegisterRequest registerRequest,
                                     @AuthenticationPrincipal UserDetailsImpl userPrincipal) {
         JwtResponse jwtResponse = this.authService.update(registerRequest, userPrincipal.getId());
