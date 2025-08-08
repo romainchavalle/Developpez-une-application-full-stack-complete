@@ -48,6 +48,8 @@ export class MeComponent {
               private sessionService: SessionService) {
   }
 
+  
+
   public submit(): void {
     const registerRequest = this.form.value as RegisterRequest;
     this.authService.update(registerRequest).subscribe({
