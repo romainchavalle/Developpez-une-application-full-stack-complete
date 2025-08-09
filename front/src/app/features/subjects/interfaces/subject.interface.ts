@@ -1,5 +1,6 @@
 export interface Subject {
   id: number,
   name: string,
-  content: string
+  content: string,
+  isSubscribed: boolean
 }

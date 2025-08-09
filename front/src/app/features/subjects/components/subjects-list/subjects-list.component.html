@@ -1,12 +1,12 @@
 <div class="articles-container">
   <mat-grid-list cols="3" gutterSize="16px" rowHeight="200px">
-    <mat-grid-tile *ngFor="let item of subjectsWithStatus$ | async">
+    <mat-grid-tile *ngFor="let subject of subjects$ | async">
     <app-card
-      [title]="item.subject.name"
-      [content]="item.subject.content"
+      [title]="subject.name"
+      [content]="subject.content"
       [isArticle]="false"
-      [subscribed]="item.isSubscribed"
-      (toggleSubscription)="toggle(item.subject.id, item.isSubscribed)">
+      [subscribed]="subject.isSubscribed"
+      (toggleSubscription)="toggle(subject.id, subject.isSubscribed)">
     </app-card>
     </mat-grid-tile>
   </mat-grid-list>

@@ -13,42 +13,33 @@ export class SubscriptionService {
   constructor(private httpClient: HttpClient) {
   }
 
-  // Create behavior subject for state management of subect's subscriptions
-  private subscriptionsSubject = new BehaviorSubject<Subscription[]>([]);
-  public userSubscriptions$ = this.subscriptionsSubject.asObservable();
 
-  // Load user's subscription on init component
-  loadUserSubscriptions() {
-    this.httpClient.get<Subscription[]>(this.pathService).subscribe(subs => this.subscriptionsSubject.next(subs))
-  }
+//   subscribe(subscription: Subscription): Observable<Subscription> {
+//     // return this.httpClient.post<Subscription>(this.pathService, subscription)
+//     //   .pipe(
+//     //     tap(newSub => {
+//     //       const current = this.subscriptionsSubject.value;
+//     //       this.subscriptionsSubject.next([...current, newSub]);
+//     //     })
+//     //   );
+//   }
 
-
-  subscribe(subscription: Subscription): Observable<Subscription> {
-    return this.httpClient.post<Subscription>(this.pathService, subscription)
-      .pipe(
-        tap(newSub => {
-          const current = this.subscriptionsSubject.value;
-          this.subscriptionsSubject.next([...current, newSub]);
-        })
-      );
-  }
-
- unsubscribe(subscription: Subscription): Observable<string> {
-    return this.httpClient.delete(
-      this.pathService,
-      {
-        body: subscription,
-        responseType: 'text'
-      }
-    ).pipe(
-      tap(() => {
-        const current = this.subscriptionsSubject.value;
-        this.subscriptionsSubject.next(
-          current.filter(sub => sub.subjectId !== subscription.subjectId)
-        );
-      })
-    );
-  }
+//  unsubscribe(subscription: Subscription): Observable<string> {
+//     // return this.httpClient.delete(
+//     //   this.pathService,
+//     //   {
+//     //     body: subscription,
+//     //     responseType: 'text'
+//     //   }
+//     // ).pipe(
+//     //   tap(() => {
+//     //     const current = this.subscriptionsSubject.value;
+//     //     this.subscriptionsSubject.next(
+//     //       current.filter(sub => sub.subjectId !== subscription.subjectId)
+//     //     );
+//     //   })
+//     // );
+//   }
 
 
 

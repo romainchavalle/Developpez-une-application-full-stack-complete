@@ -22,8 +22,9 @@ public class SubjectController {
     private SubjectService subjectService;
 
     @GetMapping
-    public ResponseEntity<List<SubjectDto>> getAll() {
-        List<SubjectDto> subjects = this.subjectService.getAllSubjects();
+    public ResponseEntity<List<SubjectDto>> getAll(@AuthenticationPrincipal UserDetailsImpl userPrincipal) {
+        Long userId = userPrincipal.getId();
+        List<SubjectDto> subjects = this.subjectService.getAllSubjects(userId);
         return ResponseEntity.ok(subjects);
     }
 

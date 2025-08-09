@@ -25,10 +25,10 @@ public class SubjectServiceImpl implements SubjectService {
     private SubscriptionRepository subscriptionRepository;
 
     @Override
-    public List<SubjectDto> getAllSubjects() {
+    public List<SubjectDto> getAllSubjects(Long userId) {
          return subjectRepository.findAll()
                 .stream()
-                .map(this::toDto)
+                .map(subject -> toDto(subject, userId))
                 .collect(Collectors.toList());
     }
 
@@ -38,11 +38,19 @@ public class SubjectServiceImpl implements SubjectService {
 
         return subscriptions.stream()
                 .map(Subscription::getSubject)
-                .map(this::toDto)
+                .map(subject -> toDto(subject, userId))
                 .collect(Collectors.toList());
     }
 
-    private SubjectDto toDto(Subject subject) {
-        return new SubjectDto(subject);
+    private SubjectDto toDto(Subject subject, Long userId) {
+        Boolean isSubscribed = isUserSubscribedToSubject(userId, subject.getId());
+        return new SubjectDto(subject, isSubscribed);
+    }
+
+    private boolean isUserSubscribedToSubject(Long userId, Long subjectId) {
+        if (userId == null) {
+            return false;
+        }
+        return subscriptionRepository.existsByUserIdAndSubjectId(userId, subjectId);
     }
 }

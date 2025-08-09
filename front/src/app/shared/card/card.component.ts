@@ -19,7 +19,7 @@ export class CardComponent {
   @Input() isArticle?: boolean;
   @Input() author?: string;
   @Input() date?: Date;
-  @Input() subscribed?: boolean;
+  @Input() subscribed!: boolean;
 
   @Output() toggleSubscription = new EventEmitter<void>();
   @Output() select = new EventEmitter<void>();
