@@ -7,5 +7,6 @@ import java.util.List;
 public interface SubjectService {
 
     List<SubjectDto> getAllSubjects();
+    List<SubjectDto> getSubjectsSubscribed(Long userId);
 
 }

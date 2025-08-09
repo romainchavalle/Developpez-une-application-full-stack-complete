@@ -17,13 +17,6 @@ public class SubscriptionController {
     @Autowired
     private SubscriptionService subscriptionService;
 
-    @GetMapping
-    public ResponseEntity<List<SubscriptionDto>> getUserSubscriptions(@AuthenticationPrincipal UserDetailsImpl userPrincipal) {
-        Long userId = userPrincipal.getId();
-        List<SubscriptionDto> subscriptions = subscriptionService.getUserSubscriptions(userId);
-        return ResponseEntity.ok(subscriptions);
-    }
-
     @PostMapping
     public ResponseEntity<SubscriptionDto> Create(@RequestBody SubscriptionDto subscriptionDto,
                                          @AuthenticationPrincipal UserDetailsImpl userPrincipal) {

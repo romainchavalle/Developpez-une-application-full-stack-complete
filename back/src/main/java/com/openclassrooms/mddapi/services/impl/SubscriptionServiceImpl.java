@@ -57,13 +57,6 @@ public class SubscriptionServiceImpl implements SubscriptionService {
         subscriptionRepository.delete(subscription);
     }
 
-    public List<SubscriptionDto> getUserSubscriptions(Long userId) {
-        return subscriptionRepository.findByUserId(userId)
-                .stream()
-                .map(this::toDto)
-                .collect(Collectors.toList());
-    }
-
     private SubscriptionDto toDto(Subscription subscription) {
         return new SubscriptionDto(subscription);
     }

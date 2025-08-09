@@ -15,4 +15,8 @@ export class SubjectService {
   public all(): Observable<Subject[]> {
     return this.httpClient.get<Subject[]>(this.pathService);
   }
+
+  public getSubjectsSubscribed(): Observable<Subject[]> {
+    return this.httpClient.get<Subject[]>(`${this.pathService}/subscribed`)
+  }
 }

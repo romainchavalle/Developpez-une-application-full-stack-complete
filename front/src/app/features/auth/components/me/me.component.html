@@ -77,21 +77,20 @@
   </mat-card>
 </form>
 
-<mat-grid-tile *ngFor="let subject of subjects$ | async">
-  <mat-card class="article-card">1
-    <mat-card-header>
-      <mat-card-title>{{ title }}</mat-card-title>
-      <mat-card-subtitle *ngIf="isArticle">
-        {{ date | date: 'MMM d, y' }} — {{ author }}
-      </mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      {{ content | slice:0:120 }}...
-    </mat-card-content>
-    <mat-card-actions *ngIf="!isArticle">
-      <button mat-button (click)="toggleSubscription.emit()">
-        {{ subscribed ? 'Se désabonner' : 'S’abonner' }}
-      </button>
-    </mat-card-actions>
-  </mat-card>
-</mat-grid-tile>
+<mat-grid-list cols="3" gutterSize="16px" rowHeight="200px">
+  <mat-grid-tile *ngFor="let subject of subjects$ | async">
+    <mat-card class="article-card">
+      <mat-card-header>
+        <mat-card-title>{{ subject.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ subject.content | slice:0:120 }}...
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="submit()">
+          <!-- {{ subscribed ? 'Se désabonner' : 'S’abonner' }} -->
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

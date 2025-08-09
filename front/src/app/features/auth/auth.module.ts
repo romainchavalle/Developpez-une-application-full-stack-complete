@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MeComponent } from './components/me/me.component';
 import { MatDivider, MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const materialModules = [
   MatButtonModule,
@@ -18,7 +19,8 @@ const materialModules = [
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatDividerModule
+  MatDividerModule,
+  MatGridListModule
 ]
 
 @NgModule({
