@@ -1,5 +1,5 @@
 <div class="articles-container">
-  <mat-grid-list cols="3" gutterSize="16px" rowHeight="200px">
+  <mat-grid-list cols="2" gutterSize="5px" rowHeight="200px">
     <mat-grid-tile *ngFor="let subject of subjects$ | async">
     <app-subject-card
       [title]="subject.name"

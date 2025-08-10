@@ -5,7 +5,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #F5F5F5;
   border: 1px solid #fcfcfc;
-  width: 300px;
+  width: 500px;
 }
 
 
@@ -28,6 +28,11 @@
 /* Bouton "Inscription" centré sous le bouton principal */
 .actions .mat-button {
   align-self: center;
+}
+
+.mat-card-actions {
+    display: flex;
+  justify-content: center;
 }
 
 
