@@ -8,7 +8,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { CardComponent } from './shared/card/card.component';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({

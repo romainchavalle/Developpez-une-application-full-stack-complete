@@ -13,34 +13,8 @@ export class SubscriptionService {
   constructor(private httpClient: HttpClient) {
   }
 
-
-//   subscribe(subscription: Subscription): Observable<Subscription> {
-//     // return this.httpClient.post<Subscription>(this.pathService, subscription)
-//     //   .pipe(
-//     //     tap(newSub => {
-//     //       const current = this.subscriptionsSubject.value;
-//     //       this.subscriptionsSubject.next([...current, newSub]);
-//     //     })
-//     //   );
-//   }
-
-//  unsubscribe(subscription: Subscription): Observable<string> {
-//     // return this.httpClient.delete(
-//     //   this.pathService,
-//     //   {
-//     //     body: subscription,
-//     //     responseType: 'text'
-//     //   }
-//     // ).pipe(
-//     //   tap(() => {
-//     //     const current = this.subscriptionsSubject.value;
-//     //     this.subscriptionsSubject.next(
-//     //       current.filter(sub => sub.subjectId !== subscription.subjectId)
-//     //     );
-//     //   })
-//     // );
-//   }
-
-
+  createSubscription(subscription: Subscription): Observable<Subscription> {
+    return this.httpClient.post<Subscription>(this.pathService, subscription)
+  }
 
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SubjectsListComponent } from './components/subjects-list/subjects-list.component';
 import { MatCardModule } from '@angular/material/card';
-import { CardComponent } from 'src/app/shared/card/card.component';
+import { SubjectCardComponent } from 'src/app/shared/card/subject-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { SubjectRoutingModule } from './subject-routing.module';
 
@@ -15,7 +15,7 @@ import { SubjectRoutingModule } from './subject-routing.module';
     CommonModule,
     SubjectRoutingModule,
     MatCardModule,
-    CardComponent,
+    SubjectCardComponent,
     MatGridListModule
   ]
 })

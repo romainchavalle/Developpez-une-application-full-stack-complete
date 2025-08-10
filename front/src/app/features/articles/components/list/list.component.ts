@@ -18,7 +18,6 @@ export class ListComponent {
     private router: Router
   ) { }
 
-
    goToDetail(id: number) {
     this.router.navigate(['/articles', id]);
   }

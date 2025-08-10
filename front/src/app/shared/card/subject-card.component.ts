@@ -2,31 +2,32 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-subject-card',
   standalone: true,
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  templateUrl: './subject-card.component.html',
+  styleUrls: ['./subject-card.component.scss'],
   imports: [MatCardModule, CommonModule, MatButtonModule],
 })
-export class CardComponent {
+export class SubjectCardComponent implements OnInit {
+  currentPage!: string;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
+
+  ngOnInit(): void {
+    this.currentPage = this.router.url;
+  }
 
   @Input() title?: string;
   @Input() content?: string;
-  @Input() isArticle?: boolean;
   @Input() author?: string;
   @Input() date?: Date;
   @Input() subscribed!: boolean;
 
-  @Output() toggleSubscription = new EventEmitter<void>();
-  @Output() select = new EventEmitter<void>();
+  @Output() createSubscription = new EventEmitter<void>();
 
-  onCardClick() {
-    if (this.isArticle) {
-      this.select.emit();
-    }
-  }
 }
