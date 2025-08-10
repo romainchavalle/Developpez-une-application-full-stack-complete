@@ -34,17 +34,14 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<ArticleDto> getAllArticlesFromSubjectsSubscribed(Long userId) {
+        // Get authenticated user
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Author not found"));
 
-        // Get subscriptions from authenticate user
-        List<Subscription> userSubscriptions = subscriptionRepository.findByUserId(userId);
-
-        // Get ids from subject's subscriptions
-        List<Long> subjectIds = userSubscriptions.stream()
-                .map(subscription -> subscription.getSubject().getId())
+        // Get articles from subject's subscriptions
+        List<Article> articles = user.getSubscriptions().stream()
+                .map(subscription -> subscription.getSubject().getArticles())
+                .flatMap(List::stream)
                 .collect(Collectors.toList());
-
-        // Get articles from these subjects
-        List<Article> articles = articleRepository.findBySubjectIds(subjectIds);
 
         // Concert to dto
         return articles.stream()

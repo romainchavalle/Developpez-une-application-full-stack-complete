@@ -10,6 +10,4 @@ import java.util.List;
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-    @Query("SELECT article FROM Article article WHERE article.subject.id IN :subjectIds")
-    List<Article> findBySubjectIds(@Param("subjectIds") List<Long> subjectIds);
 }
