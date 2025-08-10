@@ -30,5 +30,6 @@ export class SubjectCardComponent implements OnInit {
   @Input() subscribed!: boolean;
 
   @Output() createSubscription = new EventEmitter<void>();
+  @Output() deleteSubscription = new EventEmitter<void>();
 
 }

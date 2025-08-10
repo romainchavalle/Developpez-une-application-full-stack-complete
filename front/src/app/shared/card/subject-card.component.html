@@ -13,6 +13,10 @@
     disabled="{{ subscribed }}">
       {{ subscribed ? 'Déjà abonné' : 'S’abonner' }}
     </button>
-    <button mat-button *ngIf="currentPage.includes('me')">Se désabonner</button>
+    <button mat-button
+    (click)="deleteSubscription.emit()"
+    *ngIf="currentPage.includes('me')">
+      Se désabonner
+    </button>
   </mat-card-actions>
 </mat-card>

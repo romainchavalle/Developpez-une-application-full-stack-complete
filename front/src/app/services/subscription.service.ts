@@ -17,4 +17,11 @@ export class SubscriptionService {
     return this.httpClient.post<Subscription>(this.pathService, subscription)
   }
 
+  deleteSubscription(subscription: Subscription): Observable<string> {
+    return this.httpClient.delete(this.pathService, {
+      body: subscription,
+      responseType: 'text'
+    })
+  }
+
 }

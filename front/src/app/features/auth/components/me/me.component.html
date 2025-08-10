@@ -79,18 +79,11 @@
 
 <mat-grid-list cols="3" gutterSize="16px" rowHeight="200px">
   <mat-grid-tile *ngFor="let subject of subjects$ | async">
-    <mat-card class="article-card">
-      <mat-card-header>
-        <mat-card-title>{{ subject.name }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        {{ subject.content | slice:0:120 }}...
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="submit()">
-          <!-- {{ subscribed ? 'Se désabonner' : 'S’abonner' }} -->
-        </button>
-      </mat-card-actions>
-    </mat-card>
+    <app-subject-card
+      [title]="subject.name"
+      [content]="subject.content"
+      [subscribed]="subject.isSubscribed"
+      (deleteSubscription)="deleteSubscription(subject.id)">
+    </app-subject-card>
   </mat-grid-tile>
 </mat-grid-list>

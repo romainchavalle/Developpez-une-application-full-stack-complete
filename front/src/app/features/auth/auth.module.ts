@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MeComponent } from './components/me/me.component';
 import { MatDivider, MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { SubjectCardComponent } from 'src/app/shared/card/subject-card.component';
 
 const materialModules = [
   MatButtonModule,
@@ -30,6 +31,7 @@ const materialModules = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SubjectCardComponent,
     ...materialModules
   ]
 })

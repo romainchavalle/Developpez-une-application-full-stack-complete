@@ -48,8 +48,6 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     public void delete(Long userId, Long subjectId) {
-        System.out.println("bonjour" + userId);
-        System.out.println("bonjour2" + subjectId);
 
         Subscription subscription = subscriptionRepository.findByUserIdAndSubjectId( userId, subjectId)
                 .orElseThrow(() -> new IllegalArgumentException("Subject not found"));
