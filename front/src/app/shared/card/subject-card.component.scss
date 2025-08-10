@@ -19,6 +19,12 @@
   background-color: #7e57c2;
   color: #fff;
 }
+
+.subscribed {
+  color: #fff !important;
+  background-color: grey !important;
+}
+
 /* Bouton "Inscription" centré sous le bouton principal */
 .actions .mat-button {
   align-self: center;

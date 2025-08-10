@@ -6,7 +6,13 @@
     {{ content | slice:0:120 }}...
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="createSubscription.emit()"  *ngIf="currentPage.includes('subjects')" disabled="{{ subscribed }}">{{ subscribed ? 'Déjà abonné' : 'S’abonner' }}</button>
+    <button mat-button
+    (click)="createSubscription.emit()"
+    *ngIf="currentPage.includes('subjects')"
+    [ngClass]="{'subscribed': subscribed}"
+    disabled="{{ subscribed }}">
+      {{ subscribed ? 'Déjà abonné' : 'S’abonner' }}
+    </button>
     <button mat-button *ngIf="currentPage.includes('me')">Se désabonner</button>
   </mat-card-actions>
 </mat-card>

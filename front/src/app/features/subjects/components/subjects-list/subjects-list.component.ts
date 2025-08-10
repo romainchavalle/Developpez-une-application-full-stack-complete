@@ -24,7 +24,6 @@ export class SubjectsListComponent implements OnInit {
 
   constructor(
     private subjectService: SubjectService,
-    private route: ActivatedRoute,
     private subscriptionService: SubscriptionService
   ) {}
 

@@ -20,6 +20,7 @@ export class SubjectCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentPage = this.router.url;
+    console.log("bonjour", this.currentPage)
   }
 
   @Input() title?: string;

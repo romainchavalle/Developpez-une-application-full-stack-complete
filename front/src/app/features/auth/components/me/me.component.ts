@@ -14,7 +14,7 @@ import { Subject } from 'src/app/features/subjects/interfaces/subject.interface'
   templateUrl: './me.component.html',
   styleUrls: ['./me.component.scss']
 })
-export class MeComponent {
+export class MeComponent implements OnInit {
 
   public hide = true;
   public onError = false;
@@ -47,6 +47,9 @@ export class MeComponent {
     ]
   });
 
+  ngOnInit(): void {
+
+  }
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
@@ -54,8 +57,6 @@ export class MeComponent {
               private sessionService: SessionService,
               private subjectService: SubjectService) {
   }
-
-
 
   public submit(): void {
     const registerRequest = this.form.value as RegisterRequest;
