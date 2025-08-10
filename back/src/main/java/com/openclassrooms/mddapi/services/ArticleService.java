@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ArticleService {
 
-    List<ArticleDto> getAllArticles();
+    List<ArticleDto> getAllArticlesFromSubjectsSubscribed(Long userId);
 
     void createArticle(ArticleDto article, Long authorId);
 

@@ -20,8 +20,9 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping
-    public ResponseEntity<List<ArticleDto>> getAll() {
-        List<ArticleDto> articles = articleService.getAllArticles();
+    public ResponseEntity<List<ArticleDto>> getAll(@AuthenticationPrincipal UserDetailsImpl userPrincipal) {
+        Long userId = userPrincipal.getId();
+        List<ArticleDto> articles = articleService.getAllArticlesFromSubjectsSubscribed(userId);
         return ResponseEntity.ok(articles);
     }
 
