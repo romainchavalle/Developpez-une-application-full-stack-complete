@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
@@ -6,7 +7,9 @@ import { SessionService } from 'src/app/services/session.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  standalone: true,
+  styleUrls: ['./navbar.component.scss'],
+  imports: [CommonModule]
 })
 export class NavbarComponent implements OnInit {
    currentUrl = '';

@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="register-form">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Profil utilisateur</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Champ email  -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Adresse e-mail</mat-label>
+        <input
+          matInput
+          placeholder="exemple@domaine.com"
+          formControlName="email"
+          type="email"
+        />
+        <mat-error *ngIf="form.get('identifier')?.hasError('required')">
+          L’adresse e-mail est obligatoire
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Champ username  -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input
+          matInput
+          placeholder="exemple@domaine.com"
+          formControlName="username"
+        />
+        <mat-error *ngIf="form.get('identifier')?.hasError('required')">
+          Un nom d'utilisateur est obligatoire
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Champ mot de passe -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Mot de passe</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          placeholder="••••••••"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Afficher/masquer le mot de passe'"
+          [attr.aria-pressed]="!hide"
+        >
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Le mot de passe est obligatoire
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('min')">
+          Le mot de passe doit comporter au moins 3 caractères
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Message d’erreur login -->
+      <div *ngIf="onError" class="error-message">
+        Échec de l'inscription. Vérifiez vos identifiants.
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions class="actions">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Sauvegarder
+      </button>
+    </mat-card-actions>
+    <mat-divider></mat-divider>
+  </mat-card>
+</form>
+
+<mat-grid-list cols="2" gutterSize="16px" rowHeight="200px">
+  <mat-grid-tile *ngFor="let subject of subjects$ | async">
+    <app-subject-card
+      [title]="subject.name"
+      [content]="subject.content"
+      [subscribed]="subject.isSubscribed"
+      (deleteSubscription)="deleteSubscription(subject.id)">
+    </app-subject-card>
+  </mat-grid-tile>
+</mat-grid-list>

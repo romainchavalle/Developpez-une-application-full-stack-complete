@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { SubjectCardComponent } from 'src/app/shared/card/subject-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { SubjectRoutingModule } from './subject-routing.module';
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SubjectRoutingModule } from './subject-routing.module';
     SubjectRoutingModule,
     MatCardModule,
     SubjectCardComponent,
-    MatGridListModule
+    MatGridListModule,
+    NavbarComponent
   ]
 })
 export class SubjectModule { }

@@ -15,6 +15,7 @@ import { MatSelectModule }    from '@angular/material/select';
 import { DetailComponent } from './components/detail/detail.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { CommentComponent } from './components/comment/comment.component';
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 
 const materialModules = [
   MatButtonModule,
@@ -41,6 +42,7 @@ const materialModules = [
     ArticlesRoutingModule,
     SubjectModule,
     ReactiveFormsModule,
+    NavbarComponent,
     ...materialModules
   ]
 })

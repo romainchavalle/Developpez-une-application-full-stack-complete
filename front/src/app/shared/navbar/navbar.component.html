@@ -11,7 +11,7 @@
   </ul>
 
   <!-- Actions utilisateur -->
-  <div class="navbar-actions">
+  <div *ngIf="showNavbarDetails()" class="navbar-actions">
     <a class="logout" (click)="logout()">Se déconnecter</a>
     <!-- <mat-icon class="avatar">account_circle</mat-icon> -->
   </div>
