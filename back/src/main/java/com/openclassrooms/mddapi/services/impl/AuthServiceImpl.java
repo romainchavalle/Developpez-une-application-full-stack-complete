@@ -5,6 +5,7 @@ import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.requests.LoginRequest;
 import com.openclassrooms.mddapi.requests.RegisterRequest;
 import com.openclassrooms.mddapi.responses.JwtResponse;
+import com.openclassrooms.mddapi.responses.UserDto;
 import com.openclassrooms.mddapi.security.jwt.JwtUtils;
 import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
 import com.openclassrooms.mddapi.services.AuthService;
@@ -72,6 +73,14 @@ public class AuthServiceImpl implements AuthService {
         userRepository.save(user);
 
         return getJwtResponseFromAuthentication(registerRequest.getEmail(), registerRequest.getPassword());
+    }
+
+    public UserDto getCurrentUser(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException("User introuvable"));
+        UserDto userDto = new UserDto();
+        userDto.setUsername(user.getUsername());
+        userDto.setEmail(user.getEmail());
+        return userDto;
     }
 
     private JwtResponse getJwtResponseFromAuthentication(String username, String password) {

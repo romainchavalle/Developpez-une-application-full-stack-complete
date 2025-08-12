@@ -5,6 +5,7 @@ import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.requests.LoginRequest;
 import com.openclassrooms.mddapi.requests.RegisterRequest;
 import com.openclassrooms.mddapi.responses.JwtResponse;
+import com.openclassrooms.mddapi.responses.UserDto;
 import com.openclassrooms.mddapi.security.jwt.JwtUtils;
 import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
 import com.openclassrooms.mddapi.security.services.UserDetailsServiceImpl;
@@ -59,6 +60,13 @@ public class AuthController {
         JwtResponse jwtResponse = this.authService.update(registerRequest, userPrincipal.getId());
 
         return ResponseEntity.ok(jwtResponse);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<UserDto> getCurrentUser(@AuthenticationPrincipal UserDetailsImpl userPrincipal) {
+        UserDto currentUser = this.authService.getCurrentUser(userPrincipal.getId());
+        return ResponseEntity.ok(currentUser);
+
     }
 
 }

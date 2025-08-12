@@ -10,6 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Subject } from 'src/app/features/subjects/interfaces/subject.interface';
 import { Subscription } from 'src/app/features/subjects/interfaces/subscription.interface';
 import { SubscriptionService } from 'src/app/services/subscription.service';
+import { UserInformations } from '../user.interface';
 
 @Component({
   selector: 'app-me',
@@ -63,11 +64,23 @@ export class MeComponent implements OnInit {
               private subscriptionService: SubscriptionService) {
   }
 
-
   ngOnInit(): void {
     this.loadSubjects();
+    this.loadUserInformations();
   }
 
+  loadUserInformations() {
+    this.authService.getUser().subscribe({
+      next: (userInformations: UserInformations) => {
+        // Mettre à jour les valeurs du formulaire avec patchValue
+        this.form.patchValue({
+          email: userInformations.email,
+          username: userInformations.username,
+          password: '' // Laisser vide pour des raisons de sécurité
+        });
+      }
+    });
+  }
 
   loadSubjects(): void {
     this.subjectService.getSubjectsSubscribed().subscribe(subjects => {
@@ -93,8 +106,6 @@ export class MeComponent implements OnInit {
     this.currentSubjects = updatedSubjects;
     this.subjectsSubject.next(this.currentSubjects);
   }
-
-
 
 
   public submit(): void {
