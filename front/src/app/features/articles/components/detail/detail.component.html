@@ -4,30 +4,28 @@
   <mat-icon>arrow_back</mat-icon>
 </button>
 
-<ng-container *ngIf="article$ | async as article">
-  <mat-card class="detail-card">
-    <!-- En-tête avec avatar, titre et métadonnées -->
-    <mat-card-header>
-      <mat-card-title>{{ article.title }}</mat-card-title>
-      <mat-card-subtitle>
-        <div class="metadata">
-          <span>{{ article.created_at | date: 'MMM d, y' }}</span>
-          <span class="separator">|</span>
-          <span>{{ article.authorName }}</span>
-          <span class="separator">|</span>
-          <span>{{ article.subjectName }}</span>
-        </div>
-      </mat-card-subtitle>
-    </mat-card-header>
 
-    <!-- Contenu -->
-    <mat-card-content>
-      <p class="detail-content">{{ article.content }}</p>
-    </mat-card-content>
+<mat-card *ngIf="article$ | async as article" class="detail-card">
+  <!-- En-tête avec avatar, titre et métadonnées -->
+  <mat-card-header>
+    <mat-card-title>{{ article.title }}</mat-card-title>
+    <mat-card-subtitle>
+      <div class="metadata">
+        <span>{{ article.created_at | date: 'MMM d, y' }}</span>
+        <span class="separator">|</span>
+        <span>{{ article.authorName }}</span>
+        <span class="separator">|</span>
+        <span>{{ article.subjectName }}</span>
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
 
-    <mat-divider class="divider-spacing"></mat-divider>
-    <mat-card-title> Commentaires </mat-card-title>
-    <app-comment [articleId]="article.id"></app-comment>
-  </mat-card>
+  <!-- Contenu -->
+  <mat-card-content>
+    <p class="detail-content">{{ article.content }}</p>
+  </mat-card-content>
 
-</ng-container>
+  <mat-divider class="divider-spacing"></mat-divider>
+  <h2> Commentaires </h2>
+  <app-comment [articleId]="article.id"></app-comment>
+</mat-card>

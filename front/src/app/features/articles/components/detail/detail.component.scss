@@ -22,6 +22,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
+  margin-block: 30px
 }
 
 .separator {
@@ -35,4 +36,12 @@
 
 .mat-card-title:not(:first-child), .mat-card-subtitle:not(:first-child) {
     margin-top: 42px;
+}
+
+mat-card-content {
+  margin-bottom: 30px !important;
+}
+
+h2 {
+  margin-top: 50px !important;
 }
