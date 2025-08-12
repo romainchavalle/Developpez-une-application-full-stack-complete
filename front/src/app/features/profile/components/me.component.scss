@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* hauteur minimale 100% viewport */
   padding: 16px; /* espace autour du formulaire pour petits écrans */
 }
 
@@ -70,4 +69,10 @@ mat-form-field {
 
 .mat-grid-list {
   margin-inline: 300px;
+  padding-bottom: 50px
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
 }
