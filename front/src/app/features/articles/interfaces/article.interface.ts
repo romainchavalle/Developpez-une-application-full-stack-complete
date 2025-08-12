@@ -3,7 +3,7 @@ export interface Article {
   title: string;
   content: string;
   subjectId: number;
-  created_at?: Date;
+  created_at: Date;
   authorName?: string;
   subjectName?: string;
 }
