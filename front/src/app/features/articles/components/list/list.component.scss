@@ -6,22 +6,22 @@
   background-color: #F5F5F5;
   border: 1px solid #fcfcfc;
   width: 500px;
+  height: 200px;
 }
 
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 
 :host ::ng-deep .mat-card-header-text {
   margin: 0 !important;
 }
 
-
-/* Bouton "Se connecter" violet pleine largeur */
 .mat-button {
   background-color: #7e57c2;
   color: #fff;
-}
-/* Bouton "Inscription" centré sous le bouton principal */
-.actions .mat-button {
-  align-self: center;
 }
 
 
@@ -30,6 +30,11 @@
   transition: box-shadow 0.2s;
 }
 
-.mat-grid-list {
-  margin-inline: 300px;
+.articles-container {
+   margin-inline: 300px;
+   padding-bottom: 50px;
+}
+
+.mat-card-title {
+    margin-bottom: 35px !important;
 }

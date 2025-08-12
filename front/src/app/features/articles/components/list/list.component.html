@@ -1,22 +1,22 @@
 <app-navbar></app-navbar>
 
-<mat-card-actions class="actions">
-  <button
-    mat-button
-    color="primary"
-    routerLink="create"
-  >
-    Créer un article
-  </button>
-      <button mat-icon-button (click)="sortArticlesByDate()">
-      Trier
-      <mat-icon>{{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
-    </button>
-
-</mat-card-actions>
-
 <div class="articles-container">
-  <mat-grid-list cols="2" gutterSize="5px" rowHeight="200px">
+  <mat-card-actions class="actions">
+    <button
+      mat-button
+      color="primary"
+      routerLink="create"
+    >
+      Créer un article
+    </button>
+        <button mat-icon-button (click)="sortArticlesByDate()">
+        Trier par
+        <mat-icon>{{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+      </button>
+
+  </mat-card-actions>
+
+  <mat-grid-list cols="2" gutterSize="15px" rowHeight="250px">
     <mat-grid-tile *ngFor="let article of articles$ | async">
       <mat-card class="article-card"
       [class.clickable]="true"
