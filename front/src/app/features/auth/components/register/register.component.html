@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-
+<button class="arrow-back" mat-icon-button routerLink="">
+  <mat-icon>arrow_back</mat-icon>
+</button>
 <form [formGroup]="form" (ngSubmit)="submit()" class="register-form">
   <mat-card>
     <mat-card-header>

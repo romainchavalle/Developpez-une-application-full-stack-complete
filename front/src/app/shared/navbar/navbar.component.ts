@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 import { SessionService } from 'src/app/services/session.service';
 
@@ -9,7 +10,7 @@ import { SessionService } from 'src/app/services/session.service';
   templateUrl: './navbar.component.html',
   standalone: true,
   styleUrls: ['./navbar.component.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule, MatIconModule]
 })
 export class NavbarComponent implements OnInit {
    currentUrl = '';

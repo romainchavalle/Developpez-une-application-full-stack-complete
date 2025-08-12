@@ -21,4 +21,8 @@ export class ListComponent {
    goToDetail(id: number) {
     this.router.navigate(['/articles', id]);
   }
+
+  sortArticlesByDate() {
+    console.log("bonjour")
+  }
 }

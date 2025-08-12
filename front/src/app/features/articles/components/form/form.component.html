@@ -1,5 +1,9 @@
 <app-navbar></app-navbar>
 
+<button class="arrow-back" mat-icon-button (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
 <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="article-form" novalidate>
   <div class="form-container">
     <h2>Créer un nouvel article</h2>

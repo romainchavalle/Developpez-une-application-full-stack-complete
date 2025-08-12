@@ -46,4 +46,8 @@ export class FormComponent implements OnInit {
     })
   }
 
+  goBack(): void {
+    this.router.navigate(['/articles']);
+  }
+
 }
