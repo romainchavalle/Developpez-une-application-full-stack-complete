@@ -21,6 +21,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -47,7 +49,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<JwtResponse> register(@RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<JwtResponse> register(@Valid @RequestBody RegisterRequest registerRequest) {
 
         JwtResponse jwtResponse = this.authService.register(registerRequest);
         return ResponseEntity.ok(jwtResponse);
@@ -55,7 +57,7 @@ public class AuthController {
     }
 
     @PatchMapping("/update")
-    public ResponseEntity<JwtResponse> update(@RequestBody RegisterRequest registerRequest,
+    public ResponseEntity<JwtResponse> update(@Valid @RequestBody RegisterRequest registerRequest,
                                     @AuthenticationPrincipal UserDetailsImpl userPrincipal) {
         JwtResponse jwtResponse = this.authService.update(registerRequest, userPrincipal.getId());
 
