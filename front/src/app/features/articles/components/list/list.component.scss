@@ -1,12 +1,28 @@
+/* Card desktop */
 .article-card {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   background-color: #F5F5F5;
   border: 1px solid #fcfcfc;
-  width: 500px;
+  width: 500px;         /* desktop */
   height: 200px;
+}
+
+/* Grid : 2 colonnes par défaut, gap 15px */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-items: center; /* centre les cards horizont. */
+}
+
+/* Tile wrapper pour gérer largeur des cards */
+.article-tile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .actions {
@@ -37,4 +53,29 @@
 
 .mat-card-title {
     margin-bottom: 35px !important;
+}
+
+
+/* Responsive: téléphone (<=600px) */
+@media (max-width: 600px) {
+  .articles-container {
+    margin-inline: 0;    /* margin à 0 sur téléphone */
+    padding: 20px 10px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr; /* 1 colonne */
+  }
+
+  .article-card {
+    width: 90%;      /* 90% de la largeur sur téléphone */
+    height: auto;    /* laisse texte s'adapter */
+    margin: 0 auto;  /* centre */
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
 }

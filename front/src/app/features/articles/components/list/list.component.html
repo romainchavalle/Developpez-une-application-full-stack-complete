@@ -16,8 +16,8 @@
 
   </mat-card-actions>
 
-  <mat-grid-list cols="2" gutterSize="15px" rowHeight="250px">
-    <mat-grid-tile *ngFor="let article of articles$ | async">
+  <div class="articles-grid">
+    <div class="article-tile" *ngFor="let article of articles$ | async">
       <mat-card class="article-card"
       [class.clickable]="true"
         (click)="(goToDetail(article.id))"
@@ -32,6 +32,6 @@
           {{ article.content | slice:0:120 }}...
         </mat-card-content>
       </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </div>
+  </div>
 </div>
