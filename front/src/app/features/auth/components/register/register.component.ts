@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { RegisterRequest } from '../../interfaces/registerRequest.interface';
 import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
 import { SessionService } from 'src/app/services/session.service';
+import { passwordValidator } from 'src/app/validators/password.validator';
 
 @Component({
   selector: 'app-register',
@@ -29,15 +30,14 @@ export class RegisterComponent {
       '',
       [
         Validators.required,
-        Validators.min(3)
+        Validators.minLength(3)
       ]
     ],
     password: [
       '',
       [
         Validators.required,
-        Validators.min(3),
-        Validators.max(40)
+         passwordValidator()
       ]
     ]
   });

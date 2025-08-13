@@ -11,6 +11,7 @@ import { Subject } from 'src/app/features/subjects/interfaces/subject.interface'
 import { Subscription } from 'src/app/features/subjects/interfaces/subscription.interface';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { UserInformations } from '../user.interface';
+import { passwordValidator } from 'src/app/validators/password.validator';
 
 @Component({
   selector: 'app-me',
@@ -43,15 +44,14 @@ export class MeComponent implements OnInit {
       '',
       [
         Validators.required,
-        Validators.min(3)
+        Validators.minLength(3)
       ]
     ],
     password: [
       '',
       [
         Validators.required,
-        Validators.min(3),
-        Validators.max(40)
+        passwordValidator()
       ]
     ]
   });
@@ -72,11 +72,11 @@ export class MeComponent implements OnInit {
   loadUserInformations() {
     this.authService.getUser().subscribe({
       next: (userInformations: UserInformations) => {
-        // Mettre à jour les valeurs du formulaire avec patchValue
+        // Update the form with user's informations
         this.form.patchValue({
           email: userInformations.email,
           username: userInformations.username,
-          password: '' // Laisser vide pour des raisons de sécurité
+          password: ''
         });
       }
     });
