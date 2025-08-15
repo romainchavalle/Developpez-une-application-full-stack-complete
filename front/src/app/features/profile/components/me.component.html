@@ -97,13 +97,15 @@
 </form>
 
 <h2> Abonnements </h2>
-<mat-grid-list cols="2" gutterSize="16px" rowHeight="200px">
-  <mat-grid-tile *ngFor="let subject of subjects$ | async">
-    <app-subject-card
-      [title]="subject.name"
-      [content]="subject.content"
-      [subscribed]="subject.isSubscribed"
-      (deleteSubscription)="deleteSubscription(subject.id)">
-    </app-subject-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="subject-container">
+  <div class="subjects-grid">
+    <div class="subject-tile"  *ngFor="let subject of subjects$ | async">
+      <app-subject-card
+        [title]="subject.name"
+        [content]="subject.content"
+        [subscribed]="subject.isSubscribed"
+        (deleteSubscription)="deleteSubscription(subject.id)">
+      </app-subject-card>
+    </div>
+  </div>
+</div>

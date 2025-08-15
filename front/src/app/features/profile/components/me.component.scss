@@ -51,28 +51,48 @@ mat-form-field {
 }
 
 
-.article-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #F5F5F5;
-  border: 1px solid #fcfcfc;
-  width: 300px;
-}
-
-
 :host ::ng-deep .mat-card-header-text {
   margin: 0 !important;
 }
 
 
-.mat-grid-list {
+.subject-container {
+  margin-top: 30px;
   margin-inline: 300px;
-  padding-bottom: 50px
+  padding-bottom: 50px;
 }
+
+
+/* Grid : 2 colonnes par défaut, gap 15px */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-items: center; /* centre les cards horizont. */
+}
+
+
+/* Tile wrapper pour gérer largeur des cards */
+.subjecte-tile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 
 h2 {
   display: flex;
   justify-content: center;
+}
+
+/* Responsive: téléphone (<=600px) */
+@media (max-width: 600px) {
+  .subject-container {
+    margin-inline: 5px;    /* margin à 0 sur téléphone */
+    padding: 20px 10px;
+  }
+
+  .subjects-grid {
+    grid-template-columns: 1fr; /* 1 colonne */
+  }
 }

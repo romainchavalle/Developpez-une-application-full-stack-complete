@@ -48,4 +48,49 @@
       color: #555;
     }
   }
+
+  /* Burger button styling */
+  .burger-btn {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+
+/* Drawer (mobile menu) */
+.app-drawer {
+  width: 260px;
+  padding: 16px;
+}
+
+/* Mobile menu links */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 4px;
+
+  a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #222;
+
+    &.active {
+      color: #7e57c2;
+    }
+  }
+
+  .avatar {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+}
+
+/* Responsive fallback (CSS) : sur petits écrans, cache les éléments desktop au cas où isMobile n'est pas encore initialisé */
+@media (max-width: 768px) {
+  .navbar-links,
+  .navbar-actions {
+    display: none !important;
+  }
 }

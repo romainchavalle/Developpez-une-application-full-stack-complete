@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
 
 <div class="subject-container">
-  <mat-grid-list cols="2" gutterSize="5px" rowHeight="200px">
-    <mat-grid-tile *ngFor="let subject of subjects$ | async">
-    <app-subject-card
-      [title]="subject.name"
-      [content]="subject.content"
-      [subscribed]="subject.isSubscribed"
-      (createSubscription)="createSubscription(subject.id)">
-    </app-subject-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div class="subjects-grid">
+    <div class="subject-tile" *ngFor="let subject of subjects$ | async">
+      <app-subject-card
+        [title]="subject.name"
+        [content]="subject.content"
+        [subscribed]="subject.isSubscribed"
+        (createSubscription)="createSubscription(subject.id)">
+      </app-subject-card>
+    </div>
+  </div>
 </div>

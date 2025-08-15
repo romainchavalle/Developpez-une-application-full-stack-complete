@@ -9,10 +9,10 @@
     >
       Créer un article
     </button>
-        <button mat-icon-button (click)="sortArticlesByDate()">
-        Trier par
-        <mat-icon>{{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
-      </button>
+    <button class="sort-btn" mat-button (click)="sortArticlesByDate()">
+      Trier par
+      <mat-icon>{{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+    </button>
 
   </mat-card-actions>
 

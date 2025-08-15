@@ -43,3 +43,10 @@
   cursor: pointer;
   transition: box-shadow 0.2s;
 }
+
+@media (max-width: 600px) {
+  .article-card {
+    width: 85vw;   /* 90% de la largeur sur téléphone */
+    margin: 0 auto;  /* centre */
+  }
+}

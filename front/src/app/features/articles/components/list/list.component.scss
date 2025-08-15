@@ -25,10 +25,19 @@
   justify-content: center;
 }
 
+.sort-btn{
+  background-color: white !important;
+  color: black !important
+}
+
 .actions {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+mat-card-actions {
+  margin-inline: 0px !important
 }
 
 :host ::ng-deep .mat-card-header-text {
@@ -59,7 +68,7 @@
 /* Responsive: téléphone (<=600px) */
 @media (max-width: 600px) {
   .articles-container {
-    margin-inline: 0;    /* margin à 0 sur téléphone */
+    margin-inline: 5px;    /* margin à 0 sur téléphone */
     padding: 20px 10px;
   }
 
@@ -76,6 +85,7 @@
   .actions {
     flex-direction: column;
     gap: 8px;
-    align-items: stretch;
+    align-items: center !important;
+
   }
 }

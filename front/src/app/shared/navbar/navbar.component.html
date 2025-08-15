@@ -1,20 +1,52 @@
-<nav class="navbar">
-  <!-- Logo -->
-  <div class="navbar-logo">
-    <img src="assets/logo_p6.png" alt="Logo MDD" />
-  </div>
-
-  <!-- Navigation centrale -->
-  <ul *ngIf="showNavbarDetails()" class="navbar-links">
-    <li><a routerLink="/articles" routerLinkActive="active">Articles</a></li>
-    <li><a routerLink="/subjects" routerLinkActive="active">Thèmes</a></li>
-  </ul>
-
-  <!-- Actions utilisateur -->
-  <div *ngIf="showNavbarDetails()" class="navbar-actions">
-    <a class="logout" (click)="logout()">Se déconnecter</a>
-    <a routerLink="/me" class="profile-circle">
+<mat-sidenav #drawer mode="over" position="end" class="app-drawer">
+  <nav class="mobile-menu">
+    <a routerLink="/articles" routerLinkActive="active" (click)="drawer.close()">Articles</a>
+    <a routerLink="/subjects" routerLinkActive="active" (click)="drawer.close()">Thèmes</a>
+    <a (click)="logout(); drawer.close()">Se déconnecter</a>
+    <a routerLink="/me" (click)="drawer.close()">
       <mat-icon class="avatar">account_circle</mat-icon>
     </a>
-  </div>
-</nav>
+  </nav>
+</mat-sidenav>
+
+<mat-sidenav-container class="sidenav-container" *ngIf="showNavbarDetails(); else plainNavbar">
+  <!-- Drawer (menu mobile) -->
+
+  <!-- Contenu principal (navbar) -->
+  <mat-sidenav-content>
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="navbar-logo">
+        <img src="assets/logo_p6.png" alt="Logo MDD" />
+      </div>
+
+      <!-- Desktop links -->
+      <ul *ngIf="!isMobile" class="navbar-links">
+        <li><a routerLink="/articles" routerLinkActive="active">Articles</a></li>
+        <li><a routerLink="/subjects" routerLinkActive="active">Thèmes</a></li>
+      </ul>
+
+      <!-- Desktop actions -->
+      <div *ngIf="!isMobile" class="navbar-actions">
+        <a class="logout" (click)="logout()">Se déconnecter</a>
+        <a routerLink="/me" class="profile-circle">
+          <mat-icon class="avatar">account_circle</mat-icon>
+        </a>
+      </div>
+
+      <!-- Burger (mobile) -->
+      <button *ngIf="isMobile" mat-icon-button aria-label="Ouvrir le menu" (click)="drawer.open()" class="burger-btn">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </nav>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Si on veut afficher rien (par ex. /login), on peut simplement laisser la navbar minimale-->
+<ng-template #plainNavbar>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="assets/logo_p6.png" alt="Logo MDD" />
+    </div>
+  </nav>
+</ng-template>
