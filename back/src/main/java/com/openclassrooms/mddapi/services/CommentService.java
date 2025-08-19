@@ -1,6 +1,5 @@
 package com.openclassrooms.mddapi.services;
 
-import com.openclassrooms.mddapi.models.Comment;
 import com.openclassrooms.mddapi.responses.CommentDto;
 
 import java.util.List;

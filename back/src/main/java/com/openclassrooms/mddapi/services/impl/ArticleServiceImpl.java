@@ -2,11 +2,9 @@ package com.openclassrooms.mddapi.services.impl;
 
 import com.openclassrooms.mddapi.models.Article;
 import com.openclassrooms.mddapi.models.Subject;
-import com.openclassrooms.mddapi.models.Subscription;
 import com.openclassrooms.mddapi.models.User;
 import com.openclassrooms.mddapi.repository.ArticleRepository;
 import com.openclassrooms.mddapi.repository.SubjectRepository;
-import com.openclassrooms.mddapi.repository.SubscriptionRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.responses.ArticleDto;
 import com.openclassrooms.mddapi.services.ArticleService;
@@ -22,13 +20,11 @@ public class ArticleServiceImpl implements ArticleService {
     private final ArticleRepository articleRepository;
     private final UserRepository userRepository;
     private final SubjectRepository subjectRepository;
-    private final SubscriptionRepository subscriptionRepository;
 
-    public ArticleServiceImpl(ArticleRepository articleRepository, UserRepository userRepository, SubjectRepository subjectRepository, SubscriptionRepository subscriptionRepository) {
+    public ArticleServiceImpl(ArticleRepository articleRepository, UserRepository userRepository, SubjectRepository subjectRepository) {
         this.articleRepository = articleRepository;
         this.userRepository = userRepository;
         this.subjectRepository = subjectRepository;
-        this.subscriptionRepository = subscriptionRepository;
     }
 
 

@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './components/list/list.component';
-import { FormComponent } from './components/create/form.component';
+import { CreateComponent } from './components/create/create.component';
 import { DetailComponent } from './components/detail/detail.component';
 
 const routes: Routes = [
   { path: '', title: 'Articles', component: ListComponent},
-  { path: 'create', title: 'Create Article', component: FormComponent},
+  { path: 'create', title: 'Create Article', component: CreateComponent},
   { path: ':id', title: "Article detail", component: DetailComponent}
 ]
 

@@ -9,7 +9,6 @@ import com.openclassrooms.mddapi.responses.UserDto;
 import com.openclassrooms.mddapi.security.jwt.JwtUtils;
 import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
 import com.openclassrooms.mddapi.services.AuthService;
-import org.hibernate.mapping.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;

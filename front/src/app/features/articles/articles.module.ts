@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { FormComponent } from './components/create/form.component';
+import { CreateComponent } from './components/create/create.component';
 import { SubjectModule } from '../subjects/subject.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule }    from '@angular/material/select';
@@ -33,7 +33,7 @@ const materialModules = [
 @NgModule({
   declarations: [
     ListComponent,
-    FormComponent,
+    CreateComponent,
     DetailComponent,
     CommentComponent
   ],

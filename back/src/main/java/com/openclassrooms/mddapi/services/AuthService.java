@@ -4,7 +4,6 @@ import com.openclassrooms.mddapi.requests.LoginRequest;
 import com.openclassrooms.mddapi.requests.RegisterRequest;
 import com.openclassrooms.mddapi.responses.JwtResponse;
 import com.openclassrooms.mddapi.responses.UserDto;
-import org.hibernate.mapping.Any;
 
 public interface AuthService {
     public JwtResponse register(RegisterRequest req);

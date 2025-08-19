@@ -8,11 +8,11 @@ import { Article } from '../../interfaces/article.interface';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
-export class FormComponent implements OnInit {
+export class CreateComponent implements OnInit {
 
  subjects: Subject[] = [];
  public onError = false;
