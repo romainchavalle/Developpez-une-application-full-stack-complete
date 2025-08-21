@@ -1,0 +1,30 @@
+.comment-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border: 1px solid #fcfcfc;
+  width: 479px;
+  margin-inline-end: 90px;
+  margin-bottom: 15px;
+}
+
+.comment-section {
+  margin-block-start: 30px;
+}
+
+:host ::ng-deep .mat-card-header-text {
+  margin: 0 !important;
+}
+
+.comment{
+  display: flex;
+  justify-content: right;
+  gap: 10px
+}
+
+.mat-form-field {
+  margin-top: 15px;
+      width: 95%;
+}

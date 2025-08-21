@@ -1,0 +1,52 @@
+.article-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border: 1px solid #fcfcfc;
+  width: 500px;
+  height: 150px;
+}
+
+:host ::ng-deep .mat-card-header-text {
+  margin: 0 !important;
+}
+
+
+/* Bouton "Se connecter" violet pleine largeur */
+.mat-button {
+  background-color: #7e57c2;
+  color: #fff;
+  font-size: 16px;
+}
+
+.subscribed {
+  color: #fff !important;
+  background-color: grey !important;
+}
+
+/* Bouton "Inscription" centré sous le bouton principal */
+.actions .mat-button {
+  align-self: center;
+}
+
+.mat-card-actions {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.article-card.clickable {
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+@media (max-width: 600px) {
+  .article-card {
+    width: 85vw;   /* 90% de la largeur sur téléphone */
+    margin: 0 auto;  /* centre */
+  }
+}

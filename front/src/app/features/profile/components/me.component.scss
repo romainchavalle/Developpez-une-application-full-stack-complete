@@ -1,0 +1,98 @@
+/* Conteneur centré verticalement et horizontalement (utilisation de Flexbox):contentReference[oaicite:0]{index=0} */
+.register-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px; /* espace autour du formulaire pour petits écrans */
+}
+
+/* Carte Angular Material avec largeur fixe et centrée:contentReference[oaicite:1]{index=1} */
+.register-form mat-card {
+  width: 100%;
+  max-width: 400px; /* largeur fixe maximale */
+  text-align: center;
+  box-shadow: none !important;
+}
+
+/* Champs en largeur pleine */
+.full-width {
+  width: 100%;
+}
+
+/* Espacement entre les champs (form fields) */
+mat-form-field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Conteneur des actions (boutons) */
+.actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Bouton "Se connecter" violet pleine largeur */
+.actions .mat-raised-button:not([disabled]) {
+  background-color: #7e57c2;
+  color: #fff;
+}
+/* Bouton "Inscription" centré sous le bouton principal */
+.actions .mat-button {
+  align-self: center;
+}
+
+/* Message d'erreur en rouge */
+.error-message {
+  color: #e53935;
+  margin-top: 8px;
+  font-size: 0.75rem;
+}
+
+
+:host ::ng-deep .mat-card-header-text {
+  margin: 0 !important;
+}
+
+
+.subject-container {
+  margin-top: 30px;
+  margin-inline: 300px;
+  padding-bottom: 50px;
+}
+
+
+/* Grid : 2 colonnes par défaut, gap 15px */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-items: center; /* centre les cards horizont. */
+}
+
+
+/* Tile wrapper pour gérer largeur des cards */
+.subjecte-tile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive: téléphone (<=600px) */
+@media (max-width: 600px) {
+  .subject-container {
+    margin-inline: 5px;    /* margin à 0 sur téléphone */
+    padding: 20px 10px;
+  }
+
+  .subjects-grid {
+    grid-template-columns: 1fr; /* 1 colonne */
+  }
+}

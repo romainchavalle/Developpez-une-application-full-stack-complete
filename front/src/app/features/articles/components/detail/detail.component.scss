@@ -1,0 +1,47 @@
+.detail-card {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.mat-card {
+  box-shadow: none !important;
+}
+
+.mat-card-header .mat-card-title {
+    margin-bottom: 45px;
+    font-size: 31px;
+}
+
+:host ::ng-deep .mat-card-header-text {
+    margin: 0px 0px !important;
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-block: 30px
+}
+
+.separator {
+  color: rgba(0,0,0,0.3);
+}
+
+.detail-content {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.mat-card-title:not(:first-child), .mat-card-subtitle:not(:first-child) {
+    margin-top: 42px;
+}
+
+mat-card-content {
+  margin-bottom: 30px !important;
+}
+
+h2 {
+  margin-top: 50px !important;
+}

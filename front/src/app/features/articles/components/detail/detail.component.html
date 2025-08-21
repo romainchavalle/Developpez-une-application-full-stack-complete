@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<button class="arrow-back" mat-icon-button (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+
+
+<mat-card *ngIf="article$ | async as article" class="detail-card">
+  <!-- En-tête avec avatar, titre et métadonnées -->
+  <mat-card-header>
+    <mat-card-title>{{ article.title }}</mat-card-title>
+    <mat-card-subtitle>
+      <div class="metadata">
+        <span>{{ article.created_at | date: 'MMM d, y' }}</span>
+        <span class="separator">|</span>
+        <span>{{ article.authorName }}</span>
+        <span class="separator">|</span>
+        <span>{{ article.subjectName }}</span>
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <!-- Contenu -->
+  <mat-card-content>
+    <p class="detail-content">{{ article.content }}</p>
+  </mat-card-content>
+
+  <mat-divider class="divider-spacing"></mat-divider>
+  <h2> Commentaires </h2>
+  <app-comment [articleId]="article.id"></app-comment>
+</mat-card>
