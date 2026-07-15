@@ -8,11 +8,16 @@
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-## 📖 Overview
+## 📖 Overview & Business Logic
 
-This project is a complete, production-ready Full-Stack application. It demonstrates the seamless integration of a **Spring Boot REST API** with an **Angular Single Page Application (SPA)**, heavily focused on security, maintainability, and clean architecture.
+This project is a complete, production-ready Full-Stack application acting as a **Secure Corporate Social Network** (or internal communication portal). 
 
-The platform includes several modular features such as User Management, Posts, Messaging, and Rentals, all protected by a custom JWT-based authentication system.
+From a **functional perspective**, it allows users to:
+- Create accounts and manage their profiles.
+- Publish posts and communicate via direct messages.
+- Manage internal resources (like equipment or property rentals).
+
+From a **technical perspective**, it demonstrates the seamless integration of a **Spring Boot REST API** with an **Angular Single Page Application (SPA)**, heavily focused on security, maintainability, and clean architecture. All functional modules (User Management, Posts, Messaging, and Rentals) are protected by a custom JWT-based authentication system.
 
 ---
 
